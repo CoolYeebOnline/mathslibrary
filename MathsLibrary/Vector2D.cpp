@@ -102,7 +102,7 @@ const float Vector2D::magnitudeSq() const {
 
 
 const float Vector2D::distance(const Vector2D& a_other) const {
-	return sqrtf(distanceSq());
+	return sqrtf(distanceSq(a_other));
 }
 
 const float Vector2D::distanceSq(const Vector2D& a_other)const {
@@ -113,4 +113,13 @@ const float Vector2D::dotProduct(const Vector2D& a_other) const
 {
 	return (m_coordinates[0] * a_other[0]) + (m_coordinates[1] * a_other[1]);
 
+}
+
+void Vector2D::normalise() {
+	m_coordinates[0] / magnitude();
+	m_coordinates[1] / magnitude();
+}
+
+const Vector2D Vector2D::normalised()const {
+	Vector2D normalVector = *this;
 }
